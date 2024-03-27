@@ -1,0 +1,34 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dofus Item Search</title>
+</head>
+<body>
+    <h1>Dofus Item Search</h1>
+    <!-- Utiliser un formulaire pour la barre de recherche -->
+    <form id="search-form" action="/search" method="post">
+        <input type="text" id="search-input" name="query" placeholder="Enter item name...">
+        <button type="submit">Search</button>
+    </form>
+    <div id="search-results"></div>
+
+    <script>
+        // Fonction pour gérer l'événement de pression de la touche "Entrée" dans la barre de recherche
+        function handleSearchFormSubmit(event) {
+            event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+            const query = document.getElementById('search-input').value.trim();
+            if (query.length > 0) {
+                // Envoyer le formulaire lorsque la touche "Entrée" est pressée
+                document.getElementById('search-form').submit();
+            }
+        }
+
+        // Écouter l'événement de soumission du formulaire
+        document.getElementById('search-form').addEventListener('submit', handleSearchFormSubmit);
+    </script>
+</body>
+</html>
